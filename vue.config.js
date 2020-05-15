@@ -1,9 +1,9 @@
 
-const { proxy, port, alias, title, useCDN, cdn } = require('./bp.config')
+const { proxy, port, alias, title, useCDN, cdn } = require('./static/config')
 const { DynamicImportCdnPlugin } = require("webpack-dynamic-import-cdn-plugin");
 
 module.exports = {
-  outputDir: 'static',
+  outputDir: 'static/public',
   configureWebpack:  { // webpack配置，值位对象时会合并配置，为方法时会改写配置
     resolve: {
       alias

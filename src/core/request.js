@@ -7,7 +7,7 @@
 import Vue from 'vue'
 import axios from 'axios'
 import api from '@/api'
-const { token, baseURL } = require('../../bp.config')
+const { token, baseURL } = require('@config')
 
 //获取api接口
 const getApi = key => {

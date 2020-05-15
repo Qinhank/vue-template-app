@@ -11,9 +11,9 @@ const swaggerServerPort = 8091
 module.exports = {
   title: "必派脚手架工具v0.1",
   port: 3002,
-  cdn: 'http://cdn.com',
+  cdn: 'http://bpcdn.hankqin.com',
   useCDN: false, //是否对vue、vant使用cdn
-  baseURL: '/api/v1',
+  baseURL: process.env.NODE_ENV=='production'?'/api/official':'/api/v1',
   token: 'authorization',
   isAutomaticSwitching2Mock: process.env.NODE_ENV!='production', //当后端接口无效时是否自动切换到mock接口
   swagger: {
@@ -31,22 +31,31 @@ module.exports = {
     storage: 'local', // storage name session, local, memory
   },
   proxy: {
+    //本地后端接口
     "/api/v1/": {
       "target": "http://192.168.0.253:9003",
       "changeOrigin": true,
       "pathRewrite": { "^/api/v1" : "/api/v1.0" },
       "secure": false
     },
+    //本地mock接口
     "/api/mock/": {
       "target": `http://192.168.0.254:${swaggerServerPort}`,
       "changeOrigin": true,
-      // "pathRewrite": { "^/api/v2" : "/api/v1.0" },
       "secure": false
     },
+    //线上正式接口
+    "/api/official/": {
+      "target": "http://pefapi.bepai.net",
+      "changeOrigin": true,
+      "pathRewrite": { "^/api/official" : "" },
+      "secure": false
+    }
   },
   alias: {
-    '@': path.resolve(__dirname, './src'),
-    'components': path.resolve(__dirname, './src/components'),
-    'vue$': 'vue/dist/vue.esm.js'
+    '@': path.resolve(__dirname, '../src'),
+    'components': path.resolve(__dirname, '../src/components'),
+    'vue$': 'vue/dist/vue.esm.js',
+    '@config': path.resolve(__dirname, '../static/config'),
   }
 }
