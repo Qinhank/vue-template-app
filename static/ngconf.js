@@ -25,15 +25,15 @@ let str = `server
 }`
 
 // const filepath = resolve(__dirname,'../../static/')
-const fPath = join('./', `${name}.conf`);
-fs.exists(fPath,function(exists) {
+// const fPath = join('./', `${name}.conf`);
+fs.exists(`${name}.conf`,function(exists) {
   if(exists) {
     console.log('删除旧conf文件')
-    fs.unlinkSync(fPath)
+    fs.unlinkSync(`${name}.conf`)
   }
   //写入
   // const fPath = join(filepath, `${name}.conf`);
-  writeFile(fPath, str, { flag: 'wx' });
+  writeFile(`${name}.conf`, str, { flag: 'wx' });
   console.log(str)
   console.log('生成conf文件完毕')
 })
