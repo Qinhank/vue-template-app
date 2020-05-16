@@ -8,8 +8,8 @@ const fs = require('fs');
 const { promisify } = require('util');
 const writeFile = promisify(fs.writeFile);
 const { join, resolve } = require('path');
-const { port, site } = require(`../../static/config`);
-const { name } = require('../../package.json')
+const { port, site } = require(`./config`);
+const { name } = require('../package.json')
 
 let str = `server
 {
@@ -24,10 +24,11 @@ let str = `server
   }
 }`
 
-const filepath = resolve(__dirname,'../../static/')
-const fPath = join(filepath, `${name}.conf`);
+// const filepath = resolve(__dirname,'../../static/')
+const fPath = join('./', `${name}.conf`);
 fs.exists(fPath,function(exists) {
   if(exists) {
+    console.log('删除旧conf文件')
     fs.unlinkSync(fPath)
   }
   //写入
