@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vue-cli-service serve --mode dev1",
     "dev2": "vue-cli-service serve --mode dev2",
-    "build": "node src/server/ngconf.js && vue-cli-service build --mode pro",
+    "build": "node static/ngconf.js && vue-cli-service build --mode pro",
     "lint": "vue-cli-service lint",
     "mock": "node src/server/mock.js",
     "api": "node src/server/api.js"
