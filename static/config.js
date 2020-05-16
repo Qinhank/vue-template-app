@@ -11,7 +11,7 @@ const swaggerServerPort = 8091
 module.exports = {
   title: "必派脚手架工具v0.1",
   port: 3480,
-  site: 'app.bpal.work test.bpal.work',
+  site: 'app.bpal.work app2.bpal.work',
   cdn: 'http://bpcdn.hankqin.com',
   useCDN: false, //是否对vue、vant使用cdn
   baseURL: process.env.NODE_ENV=='production'?'/api/official':'/api/v1',
