@@ -34,5 +34,6 @@ fs.exists(fPath,function(exists) {
   //写入
   // const fPath = join(filepath, `${name}.conf`);
   writeFile(fPath, str, { flag: 'wx' });
+  console.log(str)
   console.log('生成conf文件完毕')
 })
