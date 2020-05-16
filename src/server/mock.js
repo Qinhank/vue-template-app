@@ -7,7 +7,7 @@ const swaggerParserMock = require('swagger-parser-mock');
 
 const writeFile = promisify(fs.writeFile);
 const mkdir = promisify(mkdirp);
-const { swagger } = require('../../bp.config');
+const { swagger } = require(`../../static/config`);
 const { swaggerOptions, port } = swagger
 
 const synchronizeSwagger = {

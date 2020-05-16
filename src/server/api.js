@@ -6,7 +6,7 @@
  */
 
 const axios = require('axios')
-const { swagger } = require(`../../bp.config`);
+const { swagger } = require(`../../static/config`);
 const { join } = require('path');
 const fs = require('fs');
 const { promisify } = require('util');

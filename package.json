@@ -1,11 +1,11 @@
 {
-  "name": "bpcli",
+  "name": "template-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "vue-cli-service serve --mode dev1",
     "dev2": "vue-cli-service serve --mode dev2",
-    "build": "vue-cli-service build --mode pro",
+    "build": "node src/server/ngconf.js && vue-cli-service build --mode pro",
     "lint": "vue-cli-service lint",
     "mock": "node src/server/mock.js",
     "api": "node src/server/api.js"
